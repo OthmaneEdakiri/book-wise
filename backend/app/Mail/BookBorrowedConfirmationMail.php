@@ -1,0 +1,60 @@
+<?php
+
+namespace App\Mail;
+
+use App\Models\BorrowRequest;
+use App\Models\User;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Queue\SerializesModels;
+
+class BookBorrowedConfirmationMail extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    protected BorrowRequest $borrowRequest;
+
+    /**
+     * Create a new message instance.
+     */
+    public function __construct(BorrowRequest $borrowRequest)
+    {
+        $this->borrowRequest = $borrowRequest;
+    }
+
+    /**
+     * Get the message envelope.
+     */
+    public function envelope(): Envelope
+    {
+        return new Envelope(
+            subject: 'Book Borrowed Confirmation Mail',
+        );
+    }
+
+    /**
+     * Get the message content definition.
+     */
+    public function content(): Content
+    {
+        return new Content(
+            view: 'emails.book-borrowed',
+            with: [
+                'borrowRequest' => $this->borrowRequest
+            ]
+        );
+    }
+
+    /**
+     * Get the attachments for the message.
+     *
+     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     */
+    public function attachments(): array
+    {
+        return [];
+    }
+}
