@@ -79,19 +79,6 @@ class BookController extends Controller
 
         $formFields['available_copies'] = $formFields['total_copies'] - $book->total_copies;
 
-        // $borrowed_book = $book->total_copies - $book->available_copies;
-
-        // if ($formFields['total_copies'] < $borrowed_book) {
-        //     return response()->json([
-        //         'message' => "Total copies cannot be less than the number of borrowed copies ({$borrowed_book}).",
-        //         'errors' => [
-        //             'total_copies' => [
-        //                 "Total copies cannot be less than the number of borrowed copies ({$borrowed_book})."
-        //             ]
-        //         ]
-        //     ], 422);
-        // }
-
         $this->updateUploadImage($request, $formFields, $book);
 
 
