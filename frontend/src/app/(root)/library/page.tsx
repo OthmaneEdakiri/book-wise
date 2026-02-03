@@ -20,7 +20,6 @@ const data = await getBooks(page, token, query, sort);
 
   return (
     <main>
-      <div className="">
         <div className="container">
           <div className="pt-[30px] pb-20 space-y-[70px]">
             <SearchForm />
@@ -32,7 +31,6 @@ const data = await getBooks(page, token, query, sort);
             )}
           </div>
         </div>
-      </div>
     </main>
   );
 };

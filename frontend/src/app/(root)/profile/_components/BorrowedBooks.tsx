@@ -6,7 +6,6 @@ import Link from "next/link";
 import React from "react";
 import { BorrowRequestWithRelation } from "@/types/borrow-request";
 import OctagonAlert from "@/components/icons/OctagonAlert";
-import BookOpenSolid from "@/components/icons/BookOpenSolid";
 import BookOpen from "@/components/icons/BookOpen";
 import CircleCheck from "@/components/icons/CircleCheck";
 import Calendar from "@/components/icons/Calendar";
@@ -17,13 +16,13 @@ const BorrowedBooks = async ({
   borrowRequests: BorrowRequestWithRelation[];
 }) => {
   return (
-    <div className="w-1/2 space-y-6">
-      <h2 className="text-[30px] leading-[100%] font-semibold mb-6">
+    <div className="xl:w-1/2 w-full space-y-6">
+      <h3 className="font-semibold md:text-[30px] text-[24px] mb-6">
         Borrowed books
-      </h2>
+      </h3>
 
       {Array.isArray(borrowRequests) && borrowRequests.length > 0 ? (
-        <div className="flex flex-wrap gap-8">
+        <div className="flex flex-wrap xl:justify-start justify-center gap-8">
           {borrowRequests
             .filter((br) => br.status !== BorrowRequestStatus.EXPIRED)
             .map((br) => (
@@ -42,19 +41,18 @@ const BorrowRequestCard = ({
 }: {
   borrowRequest: BorrowRequestWithRelation;
 }) => {
-  const daysLeft = getDaysLeft(borrowRequest.due_date);
   return (
     <div
       style={{
         background: "linear-gradient(180deg, #12141D 0%, #12151F 100%)",
       }}
-      className="w-[280px] p-5 space-y-5 rounded-2xl relative"
+      className="2xl:w-[280px] w-[calc(50%%-16px)] p-5 2xl:space-y-5 space-y-4 rounded-2xl relative"
     >
       {borrowRequest.status === BorrowRequestStatus.OVERDUE && (
         <OctagonAlert className="absolute -top-1 -left-1" />
       )}
       <div className="bg-[#936F4A4D] py-6 rounded-[10px]">
-        <div className="h-[200px] w-[144px] relative mx-auto">
+        <div className="2xl:h-[200px] h-[155px] 2xl:w-[144px] w-[115px] relative mx-auto">
           <Image src={borrowRequest.book?.image} alt="" fill={true} />
         </div>
       </div>

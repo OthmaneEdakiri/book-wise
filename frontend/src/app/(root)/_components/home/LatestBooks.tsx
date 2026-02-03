@@ -11,7 +11,7 @@ const LatestBooks = ({ books }: { books: Book[] }) => {
             Latest Books
           </h2>
 
-          <div className="flex flex-wrap justify-center gap-x-14 gap-y-11">
+          <div className="flex flex-wrap justify-center 2xl:gap-x-14 xl:gap-x-5 lg:gap-x-14 gap-x-8 gap-y-11">
             {books.slice(0, 6).map((book, index) => (
               <BookCard key={index} book={book} />
             ))}

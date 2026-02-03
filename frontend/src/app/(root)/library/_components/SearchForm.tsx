@@ -34,10 +34,10 @@ const SearchForm = () => {
   return (
     <form onSubmit={handleSearch} className="space-y-8 max-w-[630px] mx-auto">
       <div className="space-y-3.5 text-center">
-        <p className="text-[18px] font-semibold leading-[28px] uppercase">
+        <p className="md:text-[18px] text-[16px] font-semibold leading-[28px] uppercase">
           Discover Your Next Great Read
         </p>
-        <h2 className="text-[56px] leading-[64px] font-semibold text-white">
+        <h2 className="md:text-[56px] text-[48px] md:leading-[64px] leading-[54px] font-semibold text-white">
           Explore and Search for <span className="text-gold">Any Book</span> In
           Our Library
         </h2>
@@ -54,7 +54,7 @@ const SearchForm = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search"
-          className="rounded-[10px] h-[68px] ps-[58px] font-semibold !text-[20px] leading-[24px] text-white bg-[#232839] border-none"
+          className="rounded-[10px] md:h-[68px] h-[60px] ps-[58px] font-semibold !text-[20px] leading-[24px] text-white bg-[#232839] border-none"
         />
       </div>
     </form>

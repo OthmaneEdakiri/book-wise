@@ -42,7 +42,7 @@ const BooksList = ({ books, meta }: Props) => {
   return (
     <div className="space-y-12">
       <div className="flex justify-between items-center">
-        <h3 className="font-semibold text-[30px]">
+        <h3 className="font-semibold md:text-[30px] text-[24px]">
           All Library books
         </h3>
 
@@ -60,7 +60,7 @@ const BooksList = ({ books, meta }: Props) => {
         </Select>
       </div>
 
-      <div className="flex flex-wrap gap-x-18 gap-y-12">
+      <div className="flex flex-wrap lg:gap-x-18 gap-x-10 gap-y-12 justify-center">
         {books.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}

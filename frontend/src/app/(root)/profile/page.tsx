@@ -14,9 +14,9 @@ const ProfilePage = async () => {
   const borrowRequests = await getUserBorrowRequests(token);
 
   return (
-    <main className="min-h-[calc(100vh-156px)]">
+    <main className="min-h-[calc(100vh-156px)] pb-20">
       <div className="container">
-        <div className="flex justify-between gap-20">
+        <div className="flex xl:flex-row flex-col justify-between gap-x-20 gap-y-10">
           <ProfileDetails
             email={email}
             firsName={firsName}

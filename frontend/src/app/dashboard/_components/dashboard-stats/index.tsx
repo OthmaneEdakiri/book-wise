@@ -1,8 +1,6 @@
-import { getDashboardStats } from "@/lib/db/dashboard";
 import React, { Suspense } from "react";
 import StatCard from "./StatCard";
 import DashboardCardLoader from "../DashboardCardLoader";
-import { cookies } from "next/headers";
 
 interface Props {
   stats: {
@@ -26,7 +24,7 @@ interface Props {
   };
 }
 
-const DashboardStats = async ({ stats }: Props) => {
+const DashboardStats = ({ stats }: Props) => {
   const statsItems = [
     {
       title: "Barrowed Books",
